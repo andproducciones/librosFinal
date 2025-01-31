@@ -12,12 +12,8 @@ export class LoginService {
 
   // Método para iniciar sesión con Headers personalizados
   login(email: string, password: string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Accept': 'application/json',
-    });
-
-    return this.http.post(this.API_URL, { accion: 'login', email: email, password: password }, { headers });
+    let headers = new HttpHeaders().set('Content-type','application/json');
+    return this.http.post(this.API_URL, JSON.stringify({ accion: 'login', email: email, password: password }), { headers: headers });
   }
 
 

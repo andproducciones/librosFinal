@@ -22,19 +22,15 @@
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Año de Publicación</ion-label>
-      <ion-input formControlName="anio_publicacion" type="number"></ion-input>
-    </ion-item>
-
-    <ion-item>
       <ion-label position="floating">Descripción</ion-label>
-      <ion-textarea formControlName="descripcion"></ion-textarea>
+      <ion-textarea formControlName="descripcion" autoGrow="true"></ion-textarea>
     </ion-item>
 
     <ion-item>
-      <ion-label position="floating">Valoración (1 - 10)</ion-label>
-      <ion-input formControlName="valoracion" type="number" min="1" max="10"></ion-input>
+      <ion-label position="floating">Fecha de Publicación</ion-label>
+      <ion-input formControlName="fecha_publicacion" type="date"></ion-input>
     </ion-item>
+    <br>
 
     <ion-button expand="block" type="submit" [disabled]="libroForm.invalid">
       {{ isEdit ? 'Actualizar Libro' : 'Agregar Libro' }}

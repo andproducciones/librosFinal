@@ -14,10 +14,10 @@ private API_URL = 'http://localhost/libros/login.php'; // Cambia esto a la URL d
     let headers = new HttpHeaders().set('Content-type','application/json');
   
     var data = JSON.stringify({ accion: 'insertarPersona', ...datos });
-    console.log(data);
-    var res = this.http.post(this.API_URL, data,{ headers:headers });
-    console.log(res);
-    return res;
+    //console.log(data);
+    return this.http.post(this.API_URL, data,{ headers:headers });
+    //console.log(res);
+    
   }
 
   

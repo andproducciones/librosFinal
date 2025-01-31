@@ -23,10 +23,7 @@ const routes: Routes = [
     path: 'recuperar-contrasena',
     loadChildren: () => import('./pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
   },
-  {
-    path: 'menu',
-    loadChildren: () => import('./pages/menu/menu.module').then( m => m.MenuPageModule)
-  },
+  
   {
     path: 'perfil',
     loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
@@ -52,7 +49,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/libro/libro.module').then( m => m.LibroPageModule)
   },
   {
-    path: 'libro/:1',
+    path: 'libro/:id',
     loadChildren: () => import('./pages/libro/libro.module').then( m => m.LibroPageModule)
   }
 ];

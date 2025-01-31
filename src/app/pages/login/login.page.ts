@@ -10,7 +10,7 @@ import { LoginService } from '../../services/login/login.service';
   standalone: false
 })
 export class LoginPage {
-  correo: string = '';
+  email: string = '';
   password: string = '';
   intentosFallidos: number = 0;
   bloqueado: boolean = false;
@@ -29,16 +29,18 @@ export class LoginPage {
       return;
     }
 
-    if (!this.correo || !this.password) {
-      this.showAlert('Error', 'Ingrese su correo y contraseña.');
+    if (!this.email || !this.password) {
+      this.showAlert('Error', 'Ingrese su email y contraseña.');
       return;
     }
 
-    this.loginService.login(this.correo, this.password).subscribe(async response => {
-      if (response && response.data) {
+    this.loginService.login(this.email, this.password).subscribe(async response => {
+      console.log(response);
+      if (response.estado) {
         localStorage.setItem('userData', JSON.stringify(response.data));
         this.router.navigate(['/libros']); // Redirigir al menú después del login
         this.intentosFallidos = 0; // Reiniciar intentos al ingresar correctamente
+        this.showAlert('success', 'Ingreso Exitoso');
       } else {
         this.intentosFallidos++;
         this.showAlert('Error', 'Credenciales incorrectas.');

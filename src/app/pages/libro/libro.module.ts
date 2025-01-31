@@ -4,6 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { LibroPageRoutingModule } from './libro-routing.module';
 import { LibroPage } from './libro.page';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -11,7 +12,7 @@ import { LibroPage } from './libro.page';
     FormsModule,
     IonicModule,
     LibroPageRoutingModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule
   ],
   declarations: [LibroPage]
 })
