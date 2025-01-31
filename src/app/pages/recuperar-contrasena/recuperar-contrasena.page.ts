@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
-<<<<<<< Updated upstream:src/app/recuperar-contrasena/recuperar-contrasena.page.ts
-import { PersonaService } from '../services/persona/persona.service';
-=======
-import { PersonaService } from '../../services/persona/persona.service';
->>>>>>> Stashed changes:src/app/pages/recuperar-contrasena/recuperar-contrasena.page.ts
+import { PersonaService } from 'src/app/services/persona/persona.service';
 
 @Component({
   selector: 'app-recuperar-contrasena',
