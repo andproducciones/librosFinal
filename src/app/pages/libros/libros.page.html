@@ -1,0 +1,107 @@
+<!-- Menú lateral -->
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-list>
+      <!-- Nombre del usuario logueado -->
+      <ion-item>
+        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+        <ion-label>
+          <h2>{{ nombreUsuario }}</h2>
+        </ion-label>
+      </ion-item>
+
+      <ion-list-header>Opciones</ion-list-header>
+
+      <!-- Opción "Libros" -->
+      <ion-item (click)="irLibros()">
+        <ion-icon name="book-outline" slot="start"></ion-icon>
+        <ion-label>Libros</ion-label>
+      </ion-item>
+
+      <!-- Opción "Reseñas" -->
+      <ion-item (click)="irResenas()">
+        <ion-icon name="star-outline" slot="start"></ion-icon>
+        <ion-label>Reseñas</ion-label>
+      </ion-item>
+
+      <!-- Opción "Perfil" -->
+      <ion-item (click)="irPerfil()">
+        <ion-icon name="person-outline" slot="start"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-item>
+
+      <ion-list-header>Acciones</ion-list-header>
+
+      <!-- Opción "Cerrar Sesión" -->
+      <ion-item (click)="cerrarSesion()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        <ion-label>Cerrar Sesión</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido principal -->
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Libros</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-list>
+      <ion-card *ngFor="let libro of libros">
+        <ion-card-header>
+          <ion-card-title>{{ libro.titulo }}</ion-card-title>
+          <ion-card-subtitle>{{ libro.autor }} - {{ libro.anio_publicacion }}</ion-card-subtitle>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p>{{ libro.descripcion }}</p>
+
+          <!-- Valoración en una escala de 1 a 10 -->
+          <div class="rating">
+            <ion-icon name="star" class="star-icon"></ion-icon>
+            <span class="calificacion">{{ libro.valoracion }}/10</span>
+          </div>
+
+          <!-- Botones de acción -->
+          <div class="action-buttons">
+            <ion-button expand="block" color="primary" (click)="verResenas(libro.id)">
+              <ion-icon name="star-outline" slot="start"></ion-icon>
+              Reseñas
+            </ion-button>
+
+            <ion-button expand="block" color="secondary" (click)="editarLibro(libro.id)">
+              <ion-icon name="create-outline" slot="start"></ion-icon>
+              Editar
+            </ion-button>
+
+            <ion-button expand="block" color="danger" (click)="eliminarLibro(libro.id)">
+              <ion-icon name="trash-outline" slot="start"></ion-icon>
+              Eliminar
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+
+    <!-- Botón Flotante en la Esquina Inferior Derecha -->
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="abrirModalAgregarLibro()">
+        <ion-icon name="add-outline" style="color: white;"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+  </ion-content>
+</div>
+

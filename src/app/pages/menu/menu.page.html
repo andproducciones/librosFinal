@@ -1,0 +1,48 @@
+<!-- Menú lateral -->
+<ion-menu contentId="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Menú</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <ion-list>
+      <!-- Nombre del usuario logueado -->
+      <ion-item>
+        <ion-label>
+          <h2>{{ userData[0]?.nom_persona }}</h2>
+        </ion-label>
+      </ion-item>
+
+      <!-- Opción "Perfil" -->
+      <ion-item (click)="irPerfil()">
+        <ion-icon name="person-circle-outline" slot="start"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-item>
+
+      <!-- Opción "Cerrar Sesión" -->
+      <ion-item (click)="cerrarSesion()">
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        <ion-label>Cerrar Sesión</ion-label>
+      </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!-- Contenido principal -->
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      <ion-title>Inicio</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="ion-padding">
+    <h2>Bienvenido, {{ userData[0]?.nom_persona }} {{userData[0]?.ape_persona}}</h2>
+    <p>Selecciona una opción del menú.</p>
+  </ion-content>
+</div>

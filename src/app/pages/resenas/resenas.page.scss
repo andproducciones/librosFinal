@@ -1,0 +1,81 @@
+/* Estilo general del contenido */
+ion-content {
+  --background: #f8f8f8;
+  padding: 15px;
+}
+
+/* Estilo de las tarjetas de reseñas */
+ion-card {
+  --background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(200, 200, 200, 0.5);
+  margin-bottom: 15px;
+  padding: 15px;
+}
+
+/* Nombre del usuario */
+ion-card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Fecha de la reseña */
+ion-card-subtitle {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+/* Contenedor de la calificación */
+.rating {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Ícono de la estrella */
+.star-icon {
+  color: #FFD700; /* Color dorado para la estrella */
+  font-size: 1.5rem;
+  margin-right: 5px;
+}
+
+/* Número de la calificación */
+.calificacion {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #007bff; /* Azul */
+}
+
+/* Contenedor de los botones de acción */
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* Botón de editar */
+ion-button[color="secondary"] {
+  --background: #ffa726;
+  --background-hover: #fb8c00;
+  --color: white;
+}
+
+/* Botón de eliminar */
+ion-button[color="danger"] {
+  --background: #e53935;
+  --background-hover: #c62828;
+  --color: white;
+}
+
+/* Botón flotante */
+ion-fab-button {
+  --background: #007bff;
+  --color: white;
+  --border-radius: 50%;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}

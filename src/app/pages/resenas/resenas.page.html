@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/libros"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Reseñas</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-card *ngFor="let resena of resenas">
+      <ion-card-header>
+        <ion-card-title>{{ resena.usuario }}</ion-card-title>
+
+        <!-- Valoración con estrella y número -->
+        <div class="rating">
+          <ion-icon name="star" class="star-icon"></ion-icon>
+          <span class="calificacion">{{ resena.calificacion }}/10</span>
+        </div>
+
+        <ion-card-subtitle>{{ resena.fecha | date }}</ion-card-subtitle>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>{{ resena.comentario }}</p>
+
+        <div class="action-buttons">
+          <ion-button color="secondary" (click)="abrirModalEditarResena(resena)">
+            <ion-icon name="create-outline" slot="start"></ion-icon> Editar
+          </ion-button>
+
+          <ion-button color="danger" (click)="eliminarResena(resena.id)">
+            <ion-icon name="trash-outline" slot="start"></ion-icon> Eliminar
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <!-- Botón flotante para agregar reseña -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="abrirModalNuevaResena()">
+      <ion-icon name="add-outline" style="color: white;"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

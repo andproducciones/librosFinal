@@ -1,0 +1,22 @@
+// Estilos generales del menú
+ion-menu {
+    --background: #ffffff;
+    color: white;
+  }
+  
+  // Estilos del toolbar
+  ion-toolbar {
+    --background: #4A90E2;
+    --color: white;
+  }
+  
+  // Iconos del menú
+  ion-icon {
+    color: #4A90E2;
+    font-size: 1.5rem;
+  }
+  // Iconos del menú y botón de menú (hamburguesa)
+ion-menu-button {
+    color: white !important; // ✅ Establece el color del icono en blanco
+  }
+  
