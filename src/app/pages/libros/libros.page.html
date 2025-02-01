@@ -63,7 +63,7 @@
       <ion-card *ngFor="let libro of libros">
         <ion-card-header>
           <ion-card-title>{{ libro.titulo }}</ion-card-title>
-          <ion-card-subtitle>{{ libro.autor }} - {{ libro.anio_publicacion }}</ion-card-subtitle>
+          <ion-card-subtitle>{{ libro.autor }} - {{ libro.fecha_publicacion | date:'yyyy' }}</ion-card-subtitle>
         </ion-card-header>
 
         <ion-card-content>
@@ -72,7 +72,7 @@
           <!-- Valoración en una escala de 1 a 10 -->
           <div class="rating">
             <ion-icon name="star" class="star-icon"></ion-icon>
-            <span class="calificacion">{{ libro.valoracion }}/10</span>
+            <span class="calificacion">{{ promediosValoracion[libro.id] || 0 }}/10</span>
           </div>
 
           <!-- Botones de acción -->

@@ -34,14 +34,18 @@ export class PerfilPage implements OnInit {
     if (userData) {
       this.usuario = JSON.parse(userData);
     }
+
+    console.log('Datos del usuario:', this.usuario)
   }
 
   guardarCambios() {
+    localStorage.setItem('userData', JSON.stringify(this.usuario));
     this.perfilService.actualizarPerfil(this.usuario).subscribe(async response => {
       if (response.estado) {
-        localStorage.setItem('userData', JSON.stringify(this.usuario));
+        
         this.showAlert('Éxito', 'Tus datos han sido actualizados correctamente.');
-        window.location.reload();
+        this.cargarDatosUsuario();
+        //window.location.reload();
       } else {
         this.showAlert('Error', 'No se pudo actualizar la información.');
       }

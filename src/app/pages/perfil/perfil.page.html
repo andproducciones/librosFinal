@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/menu"></ion-back-button>
+      <ion-back-button defaultHref="/libros"></ion-back-button>
     </ion-buttons>
     <ion-title>Perfil</ion-title>
   </ion-toolbar>
@@ -16,32 +16,28 @@
         <!-- Campo Cédula (Solo Lectura) -->
         <ion-item>
           <ion-label position="floating">Cédula</ion-label>
-          <ion-input [(ngModel)]="usuario[0].ci_persona" disabled=""></ion-input>
+          <ion-input [(ngModel)]="usuario.cedula" disabled=""></ion-input>
         </ion-item>
 
         <!-- Campo Nombre -->
         <ion-item>
           <ion-label position="floating">Nombre</ion-label>
-          <ion-input [(ngModel)]="usuario[0].nom_persona"></ion-input>
+          <ion-input [(ngModel)]="usuario.nombre"></ion-input>
         </ion-item>
 
         <!-- Campo Apellido -->
         <ion-item>
           <ion-label position="floating">Apellido</ion-label>
-          <ion-input [(ngModel)]="usuario[0].ape_persona"></ion-input>
+          <ion-input [(ngModel)]="usuario.apellido"></ion-input>
         </ion-item>
 
         <!-- Campo Correo -->
         <ion-item>
           <ion-label position="floating">Correo Electrónico</ion-label>
-          <ion-input [(ngModel)]="usuario[0].correo_persona"></ion-input>
+          <ion-input [(ngModel)]="usuario.correo"></ion-input>
         </ion-item>
 
-        <!-- Campo Password -->
-        <ion-item>
-          <ion-label position="floating">Password</ion-label>
-          <ion-input [(ngModel)]="usuario[0].clave_persona"></ion-input>
-        </ion-item>
+        
 
         <!-- Botón para Guardar Cambios -->
         <ion-button expand="block" (click)="guardarCambios()" class="perfil-button">

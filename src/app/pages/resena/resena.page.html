@@ -11,15 +11,17 @@
 
 <ion-content class="ion-padding">
   <form [formGroup]="resenaForm" (ngSubmit)="guardarResena()">
-    <ion-item>
+   
+   <ion-item>
       <ion-label position="floating">Calificación (1 - 10)</ion-label>
-      <ion-input formControlName="calificacion" type="number" min="1" max="10"></ion-input>
+      <ion-input formControlName="valoracion" type="number" min="1" max="10"></ion-input>
     </ion-item>
 
     <ion-item>
       <ion-label position="floating">Comentario</ion-label>
-      <ion-textarea formControlName="comentario"></ion-textarea>
+      <ion-textarea formControlName="comentario" autoGrow="true"></ion-textarea>
     </ion-item>
+    <br>
 
     <ion-button expand="block" type="submit" [disabled]="resenaForm.invalid">
       {{ isEdit ? 'Actualizar Reseña' : 'Agregar Reseña' }}

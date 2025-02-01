@@ -6,6 +6,7 @@ import { AlertController, IonicModule } from '@ionic/angular';
 import { LibrosService } from 'src/app/services/libros/libros.service';
 import { LibroPage } from '../libro/libro.page';
 import { ModalController } from '@ionic/angular'; // Asegúrate de importar ModalController
+import { ResenasService } from 'src/app/services/resenas/resenas.service';
 @Component({
   selector: 'app-libros',
   templateUrl: './libros.page.html',
@@ -17,18 +18,36 @@ import { ModalController } from '@ionic/angular'; // Asegúrate de importar Moda
 export class LibrosPage implements OnInit {
   nombreUsuario: string = 'Usuario';
   libros: any[] = [];
+  resenas: any[] = [];
+  promediosValoracion: { [key: number]: number } = {};
 
   constructor(
     private router: Router,
     private librosService: LibrosService,
+    private resenasService: ResenasService,
     private modalCtrl: ModalController,
     private alertController: AlertController
   ) {}
 
   ngOnInit() {
+    if (!this.verificarUsuario()) {
+      return; // ✅ Detener la ejecución si el usuario no está autenticado
+    }
     this.cargarUsuario();
     this.obtenerLibros();
   }
+
+  verificarUsuario(): boolean {
+    const userData = localStorage.getItem('userData');
+  
+    if (!userData) {
+      this.router.navigate(['/login']); // ✅ Redirigir si no hay usuario autenticado
+      return false; // ✅ Devolver `false` para detener la ejecución
+    }
+  
+    return true; // ✅ Usuario autenticado, continuar con el flujo normal
+  }
+  
 
   cargarUsuario() {
     const userData = localStorage.getItem('userData');
@@ -43,7 +62,12 @@ export class LibrosPage implements OnInit {
       response => {
         
         this.libros = response.libros;
-        console.log(response);
+        this.libros.forEach(libro => this.obtenerResenasPromedio(libro.id));
+        
+        
+        
+        
+        //console.log(response);
       },
       error => {this.showAlert('Error', 'No se pudieron cargar los libros.')
       });
@@ -96,15 +120,23 @@ export class LibrosPage implements OnInit {
     await modal.present();
   }
 
-  getStarArray(valoracion: number): string[] {
-    const estrellas = [];
-    const valorRedondeado = Math.round(valoracion * 2) / 2;
-
-    for (let i = 1; i <= 5; i++) {
-      estrellas.push(i <= valorRedondeado ? 'star' : i - 0.5 === valorRedondeado ? 'star-half' : 'star-outline');
-    }
-    return estrellas;
+  obtenerResenasPromedio(libroId: number) {
+    this.resenasService.obtenerResenasValoracion(libroId).subscribe(
+      response => {
+        if (response.estado) {
+          this.promediosValoracion[libroId] = response.promedio; // ✅ Guardar el promedio del backend
+        } else {
+          this.promediosValoracion[libroId] = 0; // Si no hay reseñas, el promedio es 0
+        }
+      },
+      error => {
+        console.error('Error al obtener las reseñas', error);
+        this.promediosValoracion[libroId] = 0; // Si hay error, mostrar 0
+      }
+    );
   }
+
+  
 
   irPerfil() {
     this.router.navigate(['/perfil']);
