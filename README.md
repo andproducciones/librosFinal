@@ -1,4 +1,4 @@
-#📚 Aplicación de Reseñas de Libros 📱
+#Aplicación de Reseñas de Libros 📱
 Esta aplicación móvil permite a los usuarios agregar libros, escribir reseñas con una valoración del 1 al 10, gestionar sus propias reseñas y consultar las reseñas de libros específicos. Desarrollada en Ionic con un web service y una base de datos, incluye funcionalidades de autenticación y seguridad.
 
 Desarrollador: Führer
