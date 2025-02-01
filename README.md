@@ -3,7 +3,7 @@
 Esta aplicación móvil permite a los usuarios agregar libros, escribir reseñas con una valoración del 1 al 10, gestionar sus propias reseñas y consultar las reseñas de libros específicos. Desarrollada en **Ionic** con un **web service** y una **base de datos**, incluye funcionalidades de autenticación y seguridad.
 
 **👨‍💻 Desarrollador:** Führer  
-**🔗 GitHub:** [A&D Producciones](https://github.com/andproducciones)  
+**🔗 GitHub:** [AND Producciones](https://github.com/andproducciones)  
 
 ---
 
@@ -53,8 +53,8 @@ Esta aplicación móvil permite a los usuarios agregar libros, escribir reseñas
 
 ## 🛠️ Tecnologías Utilizadas
 - **Frontend**: Ionic + Angular  
-- **Backend**: Web service desarrollado en [tu tecnología elegida, ej. Node.js con Express, Laravel, etc.]  
-- **Base de datos**: MySQL / PostgreSQL / Firebase (según tu implementación)  
+- **Backend**: Web service desarrollado en PHP
+- **Base de datos**: MySQL  
 
 ---
 
