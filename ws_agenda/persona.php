@@ -66,20 +66,18 @@ switch ($post['accion']) {
     case 'actualizar':
         $sql = sprintf(
             "UPDATE persona 
-            SET nom_persona='%s', ape_persona='%s', ci_persona='%s', correo_persona='%s', clave_persona='%s' 
-            WHERE cod_persona='%s'",
+            SET nombre='%s', apellido='%s', cedula='%s', correo='%s' 
+            WHERE id='%s'",
             mysqli_real_escape_string($conn, $post['nombre']),
             mysqli_real_escape_string($conn, $post['apellido']),
             mysqli_real_escape_string($conn, $post['cedula']),
-            mysqli_real_escape_string($conn, $post['correo']),
-            mysqli_real_escape_string($conn, $post['clave']),
-            mysqli_real_escape_string($conn, $post['codigo'])
+            mysqli_real_escape_string($conn, $post['correo'])
         );
         $query = mysqli_query($conn, $sql);
 
         $respuesta = $query
-            ? ['code' => 200, 'response' => 'Data updated successfully', 'estado' => true]
-            : ['code' => 400, 'response' => 'Failed to update data', 'estado' => false];
+            ? ['response' => 'Data updated successfully', 'estado' => true]
+            : ['response' => 'Failed to update data', 'estado' => false];
         break;
 
     case 'eliminar':
